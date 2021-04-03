@@ -19,7 +19,7 @@ services:
             - sail
         depends_on:
             - mysql
-            - redis
+#            - redis
             - selenium
     mysql:
         image: 'mysql:8.0'
@@ -37,16 +37,16 @@ services:
             - sail
         healthcheck:
           test: ["CMD", "mysqladmin", "ping"]
-    redis:
-        image: 'redis:alpine'
-        ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
-        volumes:
-            - 'sailredis:/data'
-        networks:
-            - sail
-        healthcheck:
-          test: ["CMD", "redis-cli", "ping"]
+#    redis:
+#        image: 'redis:alpine'
+#        ports:
+#            - '${FORWARD_REDIS_PORT:-6379}:6379'
+#        volumes:
+#            - 'sailredis:/data'
+#        networks:
+#            - sail
+#        healthcheck:
+#          test: ["CMD", "redis-cli", "ping"]
 #    meilisearch:
 #        image: 'getmeili/meilisearch:latest'
 #        ports:
